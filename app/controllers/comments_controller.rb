@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     respond_to do |format|
-      format.html { redirect_back fallback_location: root_path }
+      format.html
       format.js
     end
   end
