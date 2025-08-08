@@ -9,6 +9,10 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.js
+    end
   end
 
   # POST /comments or /comments.json
@@ -32,8 +36,9 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to root_url, notice: "Comment was successfully updated." }
+        format.html { redirect_back fallback_location: root_url, notice: "Comment was successfully updated." }
         format.json { render :show, status: :ok, location: @comment }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
