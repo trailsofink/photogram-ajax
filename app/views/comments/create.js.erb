@@ -1,0 +1,11 @@
+// app/views/comments/create.js.erb
+
+var added_comment = $("<%= j(render @comment) %>").hide();
+
+$("#<%= dom_id(@comment.photo) %>_new_comment_form").before(added_comment);
+
+added_comment.fadeIn(500);
+
+$("#<%= dom_id(@comment.photo) %>_new_comment_form #comment_body").val("");
+
+console.log(added_comment);
