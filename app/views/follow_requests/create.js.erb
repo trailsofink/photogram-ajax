@@ -1,0 +1,5 @@
+// app/views/follow_requests/create.js.erb
+
+var followUnfollow = $("<%= j(render "follow_requests/follow_unfollow", sender: @follow_request.sender, recipient: @follow_request.recipient) %>" );
+
+$(".<%= dom_id(@follow_request.sender) %>_<%= dom_id(@follow_request.recipient) %>_follow_unfollow").replaceWith(followUnfollow);
