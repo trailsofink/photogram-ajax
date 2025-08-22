@@ -2,4 +2,4 @@
 
 var followForm = $("<%= j(render "follow_requests/form", follow_request: @follow_request.recipient.received_follow_requests.build) %>");
 
-$(".<%= dom_id(@follow_request) %>").replaceWith(followForm);
+$(".<%= dom_id(@follow_request.sender) %>_<%= dom_id(@follow_request.recipient) %>_follow_unfollow").replaceWith(followForm);
